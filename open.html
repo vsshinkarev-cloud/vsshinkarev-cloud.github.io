@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Открыть в Claude</title>
+<body style="font:17px system-ui;padding:40px 20px;text-align:center">
+<p>Открываю сессию в Claude…</p>
+<p><a id="a" style="display:block;padding:16px;background:#3445C8;color:#fff;border-radius:12px;text-decoration:none">Открыть в приложении Claude</a></p>
+<script>
+var id=location.hash.slice(1);if(!/^(session_[\w-]+|new)$/.test(id))id='new';
+var u='claude://code/'+id;document.getElementById('a').href=u;setTimeout(function(){location.href=u},150);
+</script>
