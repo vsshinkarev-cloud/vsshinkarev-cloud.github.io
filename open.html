@@ -1,9 +1,13 @@
 <!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Открыть в Claude</title>
 <body style="font:17px system-ui;padding:40px 20px;text-align:center">
-<p>Открываю сессию в Claude…</p>
+<p>Открываю в Claude…</p>
 <p><a id="a" style="display:block;padding:16px;background:#3445C8;color:#fff;border-radius:12px;text-decoration:none">Открыть в приложении Claude</a></p>
+<p><a id="w" style="display:block;padding:14px;border:1px solid #ccc;border-radius:12px;text-decoration:none;color:#3445C8">Открыть через claude.ai</a></p>
 <script>
-var id=location.hash.slice(1);if(!/^(session_[\w-]+|new)$/.test(id))id='new';
-var u='claude://code/'+id;document.getElementById('a').href=u;setTimeout(function(){location.href=u},150);
+var h=decodeURIComponent(location.hash.slice(1));
+if(/^session_[\w-]+$/.test(h)||h==='new')h='code/'+h;
+if(!/^(code|chat|project)\/[\w-]+$/.test(h))h='code/new';
+var a='claude://'+h;document.getElementById('a').href=a;document.getElementById('w').href='https://claude.ai/'+h;
+setTimeout(function(){location.href=a},150);
 </script>
